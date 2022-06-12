@@ -35,7 +35,7 @@ use tool to analyze IP addresses.
   That's it. You have successfully started Antio.
   
  ## Roadmap
-- [ ] Add .exe
+- [x] Add .exe
 - [ ] Add .appimage
 - [ ] Add .log
 - [ ] Multi-Language Support
