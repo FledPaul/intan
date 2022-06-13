@@ -30,12 +30,12 @@ use tool to analyze IP addresses.
   cd /antio-main/
   ```
   ```sh
-  python3 main.py
+  python3 run.py
   ```
   That's it. You have successfully started Antio.
   
  ## Roadmap
-- [x] Add .exe
+- [ ] Add .exe
 - [ ] Add .appimage
 - [ ] Add .log
 - [ ] Multi-Language Support
