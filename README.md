@@ -2,9 +2,9 @@
   <a href="https://github.com/fledpaul/cenera">
     <img src="img/Antio.png" height="150" width="427.5">
   </a>
-    <h3 align="center">Antio - Analyze, Save, Evaluate</h3>
+    <h3 align="center">Intan - Analyze, Save, Evaluate</h3>
   <p align="center">
-    With Antio you can easily and quickly find information about an IP address. No matter if location, provider, city & more.
+    With Intan you can easily and quickly find information about an IP address. No matter if location, provider, city & more.
     <br/>
     <a href="https://fled.dev/antio"><strong>View Details»</strong></a>
     <br/>
@@ -17,7 +17,7 @@
 
 ## About The Project
 <br>
-With Antio I try to provide an easy to
+With Intan I try to provide an easy to
 use tool to analyze IP addresses.
 
 ### Built With
@@ -27,12 +27,12 @@ use tool to analyze IP addresses.
 ## Usage
   Unzip the zip file & open a terminal in your download folder.
   ```sh
-  cd /antio-main/
+  cd /intan-main/
   ```
   ```sh
   python3 run.py
   ```
-  That's it. You have successfully started Antio.
+  That's it. You have successfully started Intan.
   
  ## Roadmap
 - [ ] Add .exe
