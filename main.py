@@ -21,25 +21,6 @@ class SetUp:
         IF.ClearTerminal()
         tprint('Antio', font='bulbhead')
 
-    def AutoUpdate(self):
-        AutoUpdate = open('autoupdate.json', 'r+')
-        AutoUpdateData = json.load(AutoUpdate)   
-        # Check Update
-        if AutoUpdateData['updated'] == False:
-            time.sleep(1)
-            print()
-            RequiredLibs = AutoUpdateData['libs'].split(' ')
-            CurrentLibCount = -1
-            # Update Libraries
-            for i in range(len(RequiredLibs)):
-                CurrentLibCount = CurrentLibCount + 1
-                os.system('pip install ' + RequiredLibs[CurrentLibCount])
-            # Update 'Updated' To 'True'
-            UpdateData = {"updated": True, "libs": AutoUpdateData['libs']}
-            AutoUpdate.seek(0)
-            AutoUpdate.truncate()
-            json.dump(UpdateData, AutoUpdate, indent=2)
-            print(colored('Dependencies Installed!', 'green', attrs=['bold']))
 
     def EnterInfo(self):
         time.sleep(1)
@@ -101,7 +82,6 @@ RT = Result()
 
 # Run Antio
 SU.WelcomeMsg()
-SU.AutoUpdate()
 SU.EnterInfo()
 LU.Lookup()
 RT.PrintResult()
