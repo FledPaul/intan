@@ -62,7 +62,7 @@ SU = SetUp()
 # 'Lookup'
 class Lookup:
     def Lookup(self):
-        LookupUrl = 'https://ipinfo.io' + InternetProtocol + '/json'
+        LookupUrl = 'https://ipinfo.io/' + InternetProtocol + '/json'
         LookupResponse = urlopen(LookupUrl)
         LookupData = json.load(LookupResponse)
         # Define Country, City, ...
