@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/fledpaul/cenera">
-    <img src="img/Antio.png" height="150" width="427.5">
+    <img src="img/Logo.png" height="150" width="427.5">
   </a>
     <h3 align="center">Intan - Analyze, Save, Evaluate</h3>
   <p align="center">
