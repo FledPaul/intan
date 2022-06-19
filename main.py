@@ -4,9 +4,8 @@ import time
 import json
 
 from IPy import IP
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QLineEdit, QPushButton, QLabel
-from PyQt5.QtCore import QSize
 from urllib.request import urlopen
 
 
@@ -37,11 +36,11 @@ class AppWindow(QMainWindow):
             except ValueError:
                 print('Error : Invalid IP')
                 time.sleep(2)
-                exit()
+                sys.exit('Exit')
             
             # Get Informations
             LookupUrl = 'https://ipinfo.io/' + InternetProtocol
-            LookupResponse = urlopen(LookupUrl)
+            LookupResponse = (LookupUrl)
             LookupData = json.load(LookupResponse)
             # Define Country, City, ...
             LookupCountry = LookupData['country']
