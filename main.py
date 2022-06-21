@@ -40,7 +40,7 @@ class AppWindow(QMainWindow):
             
             # Get Informations
             LookupUrl = 'https://ipinfo.io/' + InternetProtocol
-            LookupResponse = (LookupUrl)
+            LookupResponse = urlopen(LookupUrl)
             LookupData = json.load(LookupResponse)
             # Define Country, City, ...
             LookupCountry = LookupData['country']
@@ -92,7 +92,6 @@ class AppWindow(QMainWindow):
 
         # Location Value
         self.LocationValue = QLabel(self)
-        self.LocationValue.setText('DE / Stuttgart')
         self.LocationValue.move(50, 175)
         self.LocationValue.resize(250, 40)
         self.LocationValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
@@ -114,7 +113,6 @@ class AppWindow(QMainWindow):
 
         # Provider Value
         self.ProviderValue = QLabel(self)
-        self.ProviderValue.setText('Starlink')
         self.ProviderValue.move(375, 175)
         self.ProviderValue.resize(200, 40)
         self.ProviderValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
@@ -136,7 +134,6 @@ class AppWindow(QMainWindow):
 
         # Timezone Value
         self.TimezoneValue = QLabel(self)
-        self.TimezoneValue.setText('Berlin / Germany')
         self.TimezoneValue.move(50, 295)
         self.TimezoneValue.resize(200, 40)
         self.TimezoneValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
@@ -158,7 +155,6 @@ class AppWindow(QMainWindow):
 
         # Long- & Latitude Value
         self.LongLatValue = QLabel(self)
-        self.LongLatValue.setText('69.4200 -420.6969')
         self.LongLatValue.move(375, 295)
         self.LongLatValue.resize(250, 40)
         self.LongLatValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
