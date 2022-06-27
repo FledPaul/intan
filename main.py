@@ -46,7 +46,10 @@ class AppWindow(QMainWindow):
             LookupCountry = LookupData['country']
             LookupCity = LookupData['city']
             LookupTimezone = LookupData['timezone']
-            LookupProvider = LookupData['org']
+            try:
+                LookupProvider = LookupData['org']
+            except KeyError:
+                LookupProvider = 'Placeholder Not Given'
             LookupLocation = LookupData['loc']
             # Split / Replace Country, City, ...
             ContinentTimezone = str(LookupTimezone).split('/')[0]
