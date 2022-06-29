@@ -61,4 +61,4 @@ Zilliqa: zil1m6eyqm7flq2cwkxm8l60g836a75yq5mtdzlcjw
 Each donation will be distributed among contributors.
 
 ## License
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the GNU License. See `LICENSE.txt` for more information.
