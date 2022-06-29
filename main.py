@@ -78,7 +78,7 @@ class AppWindow(QMainWindow):
             except IndexError:
                 pass
             # Final Country, City, ...
-            if not LookupCountry == 'Invalid' and not LookupCity == 'Invalid':
+            if LookupCountry != 'Invalid' and LookupCity != 'Invalid':
                 Location = LookupCountry + ' / ' + LookupCity
             else:
                 Location = 'Invalid'
