@@ -2,6 +2,7 @@
 import sys
 import time
 import json
+import ssl
 
 from IPy import IP
 from PyQt5 import QtWidgets
@@ -37,29 +38,50 @@ class AppWindow(QMainWindow):
                 print('Error : Invalid IP')
                 time.sleep(2)
                 sys.exit('Exit')
+
+            # Establish Secure Connection
+            ssl.create_default_context()
             
             # Get Informations
             LookupUrl = 'https://ipinfo.io/' + InternetProtocol
-            LookupResponse = urlopen(LookupUrl)
+            LookupResponse = urlopen(LookupUrl, context=ssl.create_default_context())
             LookupData = json.load(LookupResponse)
             # Define Country, City, ...
-            LookupCountry = LookupData['country']
-            LookupCity = LookupData['city']
-            LookupTimezone = LookupData['timezone']
+            try:
+                LookupCountry = LookupData['country']
+            except KeyError:
+                LookupCountry = 'Invalid'
+            try:
+                LookupCity = LookupData['city']
+            except KeyError:
+                LookupCity = 'Invalid'
+            try:
+                LookupTimezone = LookupData['timezone']
+            except KeyError:
+                LookupTimezone = 'Invalid'
             try:
                 LookupProvider = LookupData['org']
             except KeyError:
-                LookupProvider = 'Placeholder Not Given'
-            LookupLocation = LookupData['loc']
+                LookupProvider = 'Invalid'
+            try:
+                LookupLocation = LookupData['loc']
+            except KeyError:
+                LookupLocation = 'Invalid'
             # Split / Replace Country, City, ...
-            ContinentTimezone = str(LookupTimezone).split('/')[0]
-            CityTimezone = str(LookupTimezone).split('/')[1]
-            CityTimezone = str(CityTimezone).replace('_', ' ')
-            LookupTimezone = ContinentTimezone + ' / ' + CityTimezone
-            LookupProvider = str(LookupProvider).split(' ')[1]
-            LookupLocation = str(LookupLocation).replace(',', ' ')
+            try:
+                ContinentTimezone = str(LookupTimezone).split('/')[0]
+                CityTimezone = str(LookupTimezone).split('/')[1]
+                CityTimezone = str(CityTimezone).replace('_', ' ')
+                LookupTimezone = ContinentTimezone + ' / ' + CityTimezone
+                LookupProvider = str(LookupProvider).split(' ')[1]
+                LookupLocation = str(LookupLocation).replace(',', ' ')
+            except IndexError:
+                pass
             # Final Country, City, ...
-            Location = LookupCountry + ' / ' + LookupCity
+            if not LookupCountry == 'Invalid' and not LookupCity == 'Invalid':
+                Location = LookupCountry + ' / ' + LookupCity
+            else:
+                Location = 'Invalid'
             Provider = LookupProvider
             LocationLang = LookupLocation
             Timezone = LookupTimezone
@@ -96,7 +118,7 @@ class AppWindow(QMainWindow):
         # Location Value
         self.LocationValue = QLabel(self)
         self.LocationValue.move(50, 175)
-        self.LocationValue.resize(250, 40)
+        self.LocationValue.resize(290, 40)
         self.LocationValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
 
         #####################################################
@@ -117,7 +139,7 @@ class AppWindow(QMainWindow):
         # Provider Value
         self.ProviderValue = QLabel(self)
         self.ProviderValue.move(375, 175)
-        self.ProviderValue.resize(200, 40)
+        self.ProviderValue.resize(290, 40)
         self.ProviderValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
 
         #####################################################
@@ -138,7 +160,7 @@ class AppWindow(QMainWindow):
         # Timezone Value
         self.TimezoneValue = QLabel(self)
         self.TimezoneValue.move(50, 295)
-        self.TimezoneValue.resize(200, 40)
+        self.TimezoneValue.resize(290, 40)
         self.TimezoneValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
 
         #####################################################
@@ -159,7 +181,7 @@ class AppWindow(QMainWindow):
         # Long- & Latitude Value
         self.LongLatValue = QLabel(self)
         self.LongLatValue.move(375, 295)
-        self.LongLatValue.resize(250, 40)
+        self.LongLatValue.resize(290, 40)
         self.LongLatValue.setStyleSheet('background-color: #EEEEEE; border-radius: 20px; color: #222222; font-size: 23px; font-weight: 500;')
 
 # Define & Run
