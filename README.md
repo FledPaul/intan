@@ -35,15 +35,11 @@ use tool to analyze IP addresses.
   That's it. You have successfully started Intan.
   
  ## Roadmap
-- [ ] Add .exe
+- [x] Add .exe
 - [ ] Add .appimage
+- [ ] Add .deb
 - [ ] Add .log
-- [ ] Multi-Language Support
-    - [ ] German
-    - [ ] Spanish
-    - [ ] Mandarin
-    - [ ] Hindi
-    - [ ] French
+- [ ] Save IP-Infos
 
 ## Donations
 ```sh
@@ -65,4 +61,4 @@ Zilliqa: zil1m6eyqm7flq2cwkxm8l60g836a75yq5mtdzlcjw
 Each donation will be distributed among contributors.
 
 ## License
-Distributed under the GNU License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
